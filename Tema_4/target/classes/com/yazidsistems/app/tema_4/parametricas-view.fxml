@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<!-- Import opcional para organizar en cuadrículas -->
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="400.0" spacing="12.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.yazidsistems.app.tema_4.controller.ParametricasController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <children>
+        <Label text="Prueba t de Student (1 Muestra)" textFill="#2c3e50">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <!-- Entrada de Datos Estadísticos -->
+        <GridPane hgap="10.0" vgap="8.0">
+            <children>
+                <Label text="Media Muestral (x̄):" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="txtMediaMuestra" promptText="Ej. 52.4" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Desviación Estándar (s):" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="txtDesviacion" promptText="Ej. 3.2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Tamaño Muestra (n):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtN" promptText="Ej. 25" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Media Hipotética (μ₀):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="txtMediaHipo" promptText="Ej. 50.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Significancia (α):" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="txtAlfa" promptText="Ej. 0.05" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            </children>
+        </GridPane>
+
+        <Button fx:id="btnCalcular" mnemonicParsing="false" onAction="#calcularPruebaT" prefWidth="140.0" style="-fx-background-color: #9b59b6; -fx-text-fill: white;" text="Calcular Prueba t" />
+
+        <!-- Panel de Diagnóstico -->
+        <VBox spacing="6.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-padding: 12;">
+            <children>
+                <Label text="Resultados Estadísticos:">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblEstadisticoT" text="Estadístico t calculado: -" />
+                <Label fx:id="lblGradosLibertad" text="Grados de libertad (gl): -" />
+                <Label fx:id="lblValorP" text="Valor p (Dos colas): -" />
+                <Label fx:id="lblConclusion" text="Conclusión: -" wrapText="true" style="-fx-font-weight: bold;" />
+            </children>
+        </VBox>
+
+        <Label fx:id="lblError" textFill="#e74c3c" wrapText="true" />
+    </children>
+</VBox>

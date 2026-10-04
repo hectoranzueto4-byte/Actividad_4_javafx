@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yazidsistems.app.tema_4.controller.MainController">
+    <children>
+        <!-- Panel Lateral Izquierdo: El Menú de Botones -->
+        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="200.0" spacing="15.0" style="-fx-background-color: #2c3e50;">
+            <children>
+                <Label text="MENÚ" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnPantalla1" onAction="#cargarPantalla1" prefWidth="150.0" text="lineas de espera" />
+                <Button fx:id="btnPantalla2" onAction="#cargarPantalla2" prefWidth="150.0" text="sistemas de inventarios" />
+                <Button fx:id="btnPantalla3" onAction="#cargarPantalla3" prefWidth="150.0" text="pruebas parametricas" />
+                <Button fx:id="btnPantalla4" onAction="#cargarPantalla4" prefWidth="150.0" text="pruebas no parametricas" />
+            </children>
+        </VBox>
+
+        <!-- Área Principal Derecha: Aquí se inyectarán los FXML secundarios -->
+        <StackPane fx:id="areaContenido" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #f4f4f4;">
+            <children>
+                <Label text="Selecciona una opción del menú" textFill="#7f8c8d">
+                    <font>
+                        <Font name="Arial" size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </StackPane>
+    </children>
+</HBox>

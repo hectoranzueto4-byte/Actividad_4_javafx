@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<!-- Se agregó ColumnConstraints para el correcto renderizado del GridPane -->
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<!-- Se agregó RowConstraints para las filas -->
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="480.0" prefWidth="420.0" spacing="12.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.yazidsistems.app.tema_4.controller.NoParametricasController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <children>
+        <Label text="Prueba Chi-Cuadrada (Bondad de Ajuste)" textFill="#2c3e50">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <Label text="Prueba de hipótesis para distribución uniforme (Proporciones Iguales)" textFill="#7f8c8d" wrapText="true" />
+
+        <!-- Entrada de Frecuencias Observadas -->
+        <GridPane hgap="10.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Frecuencia Categoría A:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="txtCatA" promptText="Ej. 15" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Frecuencia Categoría B:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="txtCatB" promptText="Ej. 28" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Frecuencia Categoría C:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtCatC" promptText="Ej. 17" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Significancia (α):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <!-- CORREGIDO: Se cambió 'value="0.05"' por 'text="0.05"' -->
+                <TextField fx:id="txtAlfa" promptText="Ej. 0.05" text="0.05" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            </children>
+        </GridPane>
+
+        <Button fx:id="btnCalcular" mnemonicParsing="false" onAction="#calcularChiCuadrada" prefWidth="160.0" style="-fx-background-color: #e67e22; -fx-text-fill: white;" text="Calcular Chi-Cuadrada" />
+
+        <!-- Panel de Diagnóstico Estadístico -->
+        <VBox spacing="6.0" style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-padding: 12;">
+            <children>
+                <Label text="Resultados del Análisis:">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblTotalN" text="Total de la muestra (N): -" />
+                <Label fx:id="lblChiCalculado" text="Estadístico χ² Calculado: -" />
+                <Label fx:id="lblValorP" text="Valor p aproximado: -" />
+                <Label fx:id="lblConclusion" style="-fx-font-weight: bold;" text="Conclusión: -" wrapText="true" />
+            </children>
+        </VBox>
+
+        <Label fx:id="lblError" textFill="#e74c3c" wrapText="true" />
+    </children>
+</VBox>
